@@ -220,7 +220,7 @@ class Networks:
 					try:
 						self.notify_add_list[target](mac)
 					except ValueError:
-						pass
+						break
 					except:
 						print("An unkown error occured")
 					
