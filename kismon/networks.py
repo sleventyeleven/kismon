@@ -217,8 +217,13 @@ class Networks:
 		while self.queue_running:
 			for mac in list(self.notify_add_queue.keys()):
 				for target in self.notify_add_queue[mac]:
-					self.notify_add_list[target](mac)
-				
+					try:
+						self.notify_add_list[target](mac)
+					except ValueError:
+						pass
+					except:
+						print("An unkown error occured")
+					
 				del self.notify_add_queue[mac]
 				
 				counter += 1
